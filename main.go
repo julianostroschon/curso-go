@@ -2,30 +2,16 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 func main() {
-	var slices []string
-	integers := [1]int{1}
+	str := "TESJTEa"
 
-	slices = []string{"first", "2º", "other"}
+	// some := strings.Split(str, "T")
+	some := strings.TrimFunc(str, func(r rune) bool {
+		return r == 'T' || r == 'E'
+	})
 
-	length := len(slices)
-
-	second := slices[1:2]
-
-	slices = append(slices, "3")
-	fmt.Printf("%+v slices\n", slices)
-	slices = slices[:len(slices)-1]
-
-	fmt.Println("Slices")
-	for index, value := range slices {
-		fmt.Printf("index[%+v], -> value %+v\n", index, value)
-	}
-	fmt.Println("Final Slices")
-
-	fmt.Printf("%+v length\n", length)
-	fmt.Printf("%+v integers\n", integers)
-	fmt.Printf("%+v second\n", second)
-
+	fmt.Printf("%+v\n", some)
 }
