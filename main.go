@@ -13,8 +13,8 @@ func init() {
 	fmt.Println("Input a letter...")
 }
 
-func getFirstLetter(input string) string {
-	return string(input[0])
+func getFirstLetter(word string) string {
+	return string(word[0])
 }
 
 func main() {
@@ -28,16 +28,17 @@ func main() {
 		fmt.Scanln(&input)
 	}
 
-	y := input[0]
+	firstLetterInput := strings.ToUpper(getFirstLetter(input))
 
-	if (y >= 'a' && y <= 'z') || (y >= 'A' && y <= 'Z') {
+	if firstLetterInput >= "A" && firstLetterInput <= "Z" {
 		for {
 			person, _ := faker.
 				GetPerson().
 				FirstName(reflect.Value{})
-			newPerson := fmt.Sprintf("%+v", person)
-			firstLetter := getFirstLetter(newPerson)
-			if firstLetter == strings.ToUpper(string(y)) {
+
+			firstLetterInName := getFirstLetter(fmt.Sprintf("%+v", person))
+
+			if firstLetterInName == firstLetterInput {
 				fmt.Println(person)
 				break
 			}
