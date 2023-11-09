@@ -1,17 +1,13 @@
 package main
 
-import (
-	"fmt"
-	"strings"
-)
+import "fmt"
 
 func main() {
-	str := "TESJTEa"
+	m := map[string]int{"a": 1}
+	m["b"] = 2
 
-	// some := strings.Split(str, "T")
-	some := strings.TrimFunc(str, func(r rune) bool {
-		return r == 'T' || r == 'E'
-	})
+	for key, value := range m {
 
-	fmt.Printf("%+v\n", some)
+		fmt.Printf("[%+v] -> %+v\n", key, value)
+	}
 }
