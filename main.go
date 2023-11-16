@@ -1,13 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
+
+func getUniqueValues(slices []string) []string {
+	var mapi = map[string]int{}
+	for key, value := range slices {
+		mapi[value] = key
+	}
+	var result = []string{}
+
+	for key := range mapi {
+		result = append(result, (key))
+	}
+	return result
+}
 
 func main() {
-	m := map[string]int{"a": 1}
-	m["b"] = 2
+	var slices []string
 
-	for key, value := range m {
+	slices = []string{"a", "a", "c", "c", "b", "b", "d", "d"}
 
-		fmt.Printf("[%+v] -> %+v\n", key, value)
-	}
+	fmt.Printf("%+v\n", getUniqueValues(slices))
 }
