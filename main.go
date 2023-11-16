@@ -6,10 +6,10 @@ import (
 
 func getUniqueValues(slices []string) []string {
 	var mapi = map[string]int{}
+	var result = []string{}
 	for key, value := range slices {
 		mapi[value] = key
 	}
-	var result = []string{}
 
 	for key := range mapi {
 		result = append(result, (key))
